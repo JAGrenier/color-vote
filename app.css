@@ -19,12 +19,15 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    border-style: solid;
+    border-radius: 6px;
+    background-color: aquamarine;
 }
 
 h2, p {
     margin: 0;
     padding: 0; 
-    color: white; 
+    color: black; 
     text-align: center;
     text-transform: uppercase;
 }
