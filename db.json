@@ -1,9 +1,16 @@
 {
   "colors": [
     {
-      "name": "white",
-      "hex": "#000000",
-      "id": 1
+      "id": 2,
+      "name": "Aqua",
+      "hex": "#00FFFF",
+      "votes": 0
+    },
+    {
+      "name": "Green",
+      "hex": "#33d139",
+      "votes": 0,
+      "id": 3
     }
   ]
 }

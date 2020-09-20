@@ -15,13 +15,13 @@ body {
 .color-card {
     width: 200px;
     height: 200px;
-    margin: 25px;
+    margin: 30px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     border-style: solid;
-    border-radius: 6px;
-    background-color: aquamarine;
+    border-radius: 2px;
+    border-width: 1px;
 }
 
 h2, p {
@@ -47,11 +47,13 @@ button, .form-button {
 
 form {
     border: solid 1px black;
+    border-radius: 2px;
     display: flex;
     flex-direction: column;
     align-items: center;
     align-self: center;
     width: 200px;
+    margin: 30px;
 }
 
 label {
