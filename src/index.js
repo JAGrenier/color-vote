@@ -35,6 +35,7 @@ function createCard(color){
         voteButton.addEventListener('click', () => {
             color.votes++
             colorVote.textContent = `${color.votes} Votes`
+            colorVoteFetch(color)
         })
 
         deleteButton.addEventListener('click', () => {
@@ -64,4 +65,17 @@ function submitForm(event){
 
 function deleteColor(color) {
     fetch(`${colorsURL}/${color.id}`, {method: 'DELETE'})
+}
+
+function colorVoteFetch(color){
+    console.log(color)
+    const votes = color.votes
+    fetch(`${colorsURL}/${color.id}`,{
+        method: 'PATCH', 
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify({votes})
+        
+    })
 }
