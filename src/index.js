@@ -22,19 +22,20 @@ function createCard(color){
 
         colorCard.classList = 'color-card'
         colorName.textContent = color.name
-        colorVote.textContent = 0 
+        colorVote.textContent = `${color.votes} votes`
         voteButton.id = 'vote-button'
         voteButton.textContent = "+1 Vote!"
         deleteButton.id = 'delete-button'
-        deleteButton.textContent = "Delete Color"
+        deleteButton.textContent = "Delete"
 
         colorCard.style.backgroundColor = color.hex
+
         colorCard.append(colorName, colorVote, voteButton, deleteButton)
         cardContainer.appendChild(colorCard)
 
         voteButton.addEventListener('click', () => {
             color.votes++
-            colorVote.textContent = `${color.votes} Votes`
+            colorVote.textContent = `${color.votes} votes`
             colorVoteFetch(color)
         })
 
@@ -42,7 +43,7 @@ function createCard(color){
             deleteColor(color)
             colorCard.remove()
             })
-    }
+}
 
 form.addEventListener('submit', submitForm)
 
@@ -60,7 +61,7 @@ function submitForm(event){
         method: 'POST', 
         headers: { 'Content-type': 'application/json' }, 
         body: JSON.stringify({name, hex, votes})
-})
+    })
 }
 
 function deleteColor(color) {
@@ -68,7 +69,6 @@ function deleteColor(color) {
 }
 
 function colorVoteFetch(color){
-    console.log(color)
     const votes = color.votes
     fetch(`${colorsURL}/${color.id}`,{
         method: 'PATCH', 
@@ -76,6 +76,5 @@ function colorVoteFetch(color){
             'Content-type': 'application/json'
         },
         body: JSON.stringify({votes})
-        
     })
 }
